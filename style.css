@@ -41,9 +41,12 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 input{
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     border: none;
     outline: none;
     background: transparent;
@@ -51,6 +54,7 @@ input{
     font-weight: 14px;
 }
 button{
+    flex-shrink: 0;
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -115,10 +119,23 @@ h2 {
     justify-content: center;
 }
 .row button:last-child img.trash-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     display: block;
 }
 .row button:last-child:hover {
     background: #ffc632;
+}
+@media (max-width: 480px) {
+    .row { gap: 5px; }
+    .row button {
+        flex: 1 1 48%;
+        font-size: 12px;
+        padding: 8px;
+    }
+    .row button:last-child
+    img.trash-icon {
+        width: 20px;
+        height: 20px;
+    }
 }
