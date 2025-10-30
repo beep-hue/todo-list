@@ -1,20 +1,25 @@
-*{
+/* ---------- 全局样式 ---------- */
+* {
     image-rendering: pixelated;
     margin: 0;
     padding: 0;
     font-family: 'Pixelify Sans', sans-serif;
     box-sizing: border-box;
 }
-.container{
+
+/* ---------- 容器 ---------- */
+.container {
     width: 100%;
     min-height: 100vh;
-    background-image: url('Photo/background.png');
+    background-image: url('photo/background.png'); /* 确认路径大小写 */
     background-repeat: repeat;
-    background-size: 300px;
+    background-size: 300px;  /* 桌面云朵大小 */
     background-color: #FFF2a6;
     padding: 10px;
 }
-.todo-app{
+
+/* ---------- To-Do 区块 ---------- */
+.todo-app {
     width: 100%;
     max-width: 540px;
     background: #fff;
@@ -23,48 +28,80 @@
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-.todo-app h2{
+
+/* ---------- 标题 ---------- */
+.todo-app h2 {
     color: #002765;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-size: 35px;
 }
-.todo-app h2 img{
+.todo-app h2 img {
     width: 30px;
     margin-left: 10px;
 }
-.row{
+
+/* ---------- 输入框 + 按钮行 ---------- */
+.row {
     display: flex;
+    flex-wrap: wrap;      /* 允许换行 */
     align-items: center;
     justify-content: space-between;
     background: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
+    padding: 10px 20px;
     margin-bottom: 25px;
     gap: 10px;
-    flex-wrap: wrap;
 }
-input{
-    flex: 1 1 auto;
-    min-width: 0;
+
+.row input {
+    flex: 1 1 auto;       /* 自动伸缩 */
+    min-width: 0;         /* 防止溢出 */
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
     font-weight: 14px;
 }
-button{
-    flex-shrink: 0;
+
+.row button {
+    flex: 0 1 auto;
+    min-width: 0;
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 16px 30px;
     background: #ff5945;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-ul li{
+
+.row button:last-child {
+    background: #ffb400; /* 垃圾桶按钮 */
+    padding: 12px;
+}
+
+.row button:last-child img.trash-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.row button:hover {
+    opacity: 0.9;
+}
+
+.row button:last-child:hover {
+    background: #ffc632;
+}
+
+/* ---------- To-Do 列表 ---------- */
+ul li {
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
@@ -72,26 +109,30 @@ ul li{
     cursor: pointer;
     position: relative;
 }
-ul li::before{
+
+ul li::before {
     content: '';
     position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(Photo/unchecked.png);
+    background-image: url(photo/unchecked.png);
     background-size: cover;
     background-position: center;
     top: 12px;
     left: 8px;
 }
-ul li.checked{
+
+ul li.checked {
     color: #555;
     text-decoration: line-through;
 }
-ul li.checked::before{
-    background-image: url(Photo/checked.png);
+
+ul li.checked::before {
+    background-image: url(photo/checked.png);
 }
-ul li span{
+
+ul li span {
     position: absolute;
     right: 0;
     top: 5px;
@@ -102,40 +143,37 @@ ul li span{
     line-height: 40px;
     text-align: center;
 }
-ul li span:hover{
+
+ul li span:hover {
     background: #edeef0;
 }
-h2 {
-    font-size: 35px;
-}
-.row button:last-child {
-    background: #ffb400;
-    margin-left: 10px;
-    border-radius: 30px;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.row button:last-child img.trash-icon {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
-.row button:last-child:hover {
-    background: #ffc632;
-}
+
+/* ---------- 媒体查询：手机 ---------- */
 @media (max-width: 480px) {
-    .row { gap: 5px; }
+    .container {
+        background-size: 150px;  /* 手机云朵更小 */
+    }
+
+    .row {
+        gap: 5px;
+    }
+
+    .row input {
+        flex: 1 1 100%;   /* 输入框占满一行 */
+    }
+
     .row button {
-        flex: 1 1 48%;
-        font-size: 12px;
+        flex: 1 1 48%;    /* 两个按钮并排，自动换行 */
+        font-size: 14px;
         padding: 8px;
     }
-    .row button:last-child
-    img.trash-icon {
-        width: 20px;
-        height: 20px;
+
+    .row button:last-child img.trash-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    h2 {
+        font-size: 28px;
     }
 }
