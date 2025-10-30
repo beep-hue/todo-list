@@ -8,7 +8,7 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background-image: url('photo/background.png');
+    background-image: url('Photo/background.png');
     background-repeat: repeat;
     background-size: 300px;
     background-color: #FFF2a6;
@@ -74,7 +74,7 @@ ul li::before{
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(photo/unchecked.png);
+    background-image: url(Photo/unchecked.png);
     background-size: cover;
     background-position: center;
     top: 12px;
@@ -85,7 +85,7 @@ ul li.checked{
     text-decoration: line-through;
 }
 ul li.checked::before{
-    background-image: url(photo/checked.png);
+    background-image: url(Photo/checked.png);
 }
 ul li span{
     position: absolute;
